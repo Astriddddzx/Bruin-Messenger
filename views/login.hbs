@@ -34,48 +34,6 @@
 
   //added this for facebook sdk
 
-<script>
-
-FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-});
-
-//logging in
-FB.login(function(response) {
-  if (response.status === 'connected') {
-    // Logged into your app and Facebook.
-  } else if (response.status === 'not_authorized') {
-    // The person is logged into Facebook, but not your app.
-  } else {
-    // The person is not logged into Facebook, so we're not sure if
-    // they are logged into this app or not.
-  }
-});
-//log out
-FB.logout(function(response) {
-   // Person is now logged out
-});
-
-
-
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '688834504610751',
-      xfbml      : true,
-      version    : 'v2.6'
-    });
-  };
-  FB.AppEvents.logPageView();
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-//
 
     <!-- Header -->
     <header id="top" class="header">
