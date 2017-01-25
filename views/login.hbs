@@ -37,15 +37,39 @@
 
 <body>
 
+  <script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '688834504610751',
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+</script>
+
+
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">
             <h1>Bruin Messenger</h1>
             <h3>Connected we are stronger</h3>
 
-            <div  action="/auth/login" method="post", class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
+
+            <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-show-faces="false" data-auto-logout-link="true"></div>
 
 
+});
 
             </body>
 
@@ -53,21 +77,6 @@
         </div>
     </header>
 
-
-    <script src="http://connect.facebook.net/en_US/all.js">
-     </script>
-     <script>
-         FB.init({
-             appId: '688834504610751', cookie: true,
-             status: true, xfbml: true
-         });
-         FB.Event.subscribe('auth.login', function () {
-             window.location = "/auth/login";
-         });
-     </script>
-     <fb:login-button>
-        Login with Facebook
-     </fb:login-button>
 
 //following : FB button
 <div id="fb-root"></div>
@@ -77,9 +86,18 @@
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=688834504610751";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
 
 
+
+</script>
+
+<script>
+    FB.Event.subscribe('auth.login', function(response) {
+        alert("Logged in.. Redirecting you now...");
+         window.location = "auth/login";
+    });
+</script>
 
 </html>
 
